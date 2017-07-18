@@ -1,8 +1,20 @@
-Note:
-You'll need to run the following commands to get started!
+# React Sinatra Boilerplate
 
-`npm install`
-`bundle install`
+A basic React on Sinatra boilerplate.
 
-Then in order to get the application up and running you have to open up two
-tabs and run `ruby server.rb` in one and `webpack --watch` in the other!
+## Setup
+To get set up, run the following:
+
+```no-highlight
+  bundle install
+  ruby server.rb
+```
+
+In a separate terminal tab, run:
+
+```no-highlight
+  npm install
+  webpack --watch
+```
+
+And navigate to `localhost:4567`
