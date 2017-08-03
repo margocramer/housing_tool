@@ -36,7 +36,6 @@ class FormContainer extends Component {
         updateIncomeStatus={this.updateIncomeStatus}
       />
       result = <ResultTile
-
       />
     } else if (!this.state.hasSelectedHouseholdSize){
       form1 = <HouseholdSizeForm

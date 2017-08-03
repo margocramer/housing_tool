@@ -20198,10 +20198,11 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var ResultTile = function ResultTile(props) {
+
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'result' },
-	    _react2.default.createElement('img', { src: 'http://demandware.edgesuite.net/sits_pod32/dw/image/v2/BBBW_PRD/on/demandware.static/-/Sites-jss-master/default/dw625729c3/images/products/flowers/01712_01_procutorange.jpg?sw=1120' })
+	    _react2.default.createElement('img', { src: '/chart.png' })
 	  );
 	};
 
