@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FormContainer from './containers/FormContainer';
 
 class App extends Component {
   constructor(props){
@@ -10,7 +11,9 @@ class App extends Component {
 
   render() {
     return(
-      <h1>BOILERPLATE !</h1>
+    <div>
+        <FormContainer />
+    </div>
     )
   }
 }
