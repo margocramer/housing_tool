@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import HouseholdSizeForm from './HouseholdSizeForm'
-import IncomeForm from './IncomeForm'
-import ResultTile from '../components/ResultTile'
+import HouseholdSizeForm from './HouseholdSizeForm';
+import IncomeForm from './IncomeForm';
+import ResultTile from '../components/ResultTile';
 
 class FormContainer extends Component {
   constructor(props) {
@@ -35,7 +35,8 @@ class FormContainer extends Component {
       form2 = <IncomeForm
         updateIncomeStatus={this.updateIncomeStatus}
       />
-      result = <ResultTile />
+      result = <ResultTile
+      />
     } else if (!this.state.hasSelectedHouseholdSize){
       form1 = <HouseholdSizeForm
         updateHouseholdStatus={this.updateHouseholdStatus}

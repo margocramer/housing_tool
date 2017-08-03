@@ -20198,10 +20198,11 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var ResultTile = function ResultTile(props) {
+
 	  return _react2.default.createElement(
-	    'h1',
-	    null,
-	    'Result!'
+	    'div',
+	    { className: 'result' },
+	    _react2.default.createElement('img', { src: '/chart.png' })
 	  );
 	};
 

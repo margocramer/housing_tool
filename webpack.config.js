@@ -20,7 +20,9 @@ module.exports = {
         },
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/
-      }
+      },
+      { test: /\.(png|jpg)$/,
+        loader: 'url-loader?limit=25000' }
     ]
   }
 };
