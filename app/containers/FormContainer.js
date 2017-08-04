@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import HouseholdSizeForm from './HouseholdSizeForm';
 import IncomeForm from './IncomeForm';
-import ResultTile from '../components/ResultTile';
+import ResultContainer from '../components/ResultContainer';
 
 class FormContainer extends Component {
   constructor(props) {
@@ -13,7 +13,6 @@ class FormContainer extends Component {
     this.updateIncome = this.updateIncome.bind(this);
     this.updateSize = this.updateSize.bind(this)
   }
-
 
   updateIncome(event){
     this.setState({income: event.target.value})
@@ -36,8 +35,11 @@ class FormContainer extends Component {
       form2 = <IncomeForm
         updateIncome={this.updateIncome}
         income={this.state.income}
+        size={this.state.size}
       />
-      result = <ResultTile
+      result = <ResultContainer
+        income={this.state.income}
+        size={this.state.size}
       />
     } else if ( this.state.size === "Household Size" || !this.state.size ){
       form1 = <HouseholdSizeForm

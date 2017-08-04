@@ -9,10 +9,10 @@ const NavBar = (props) => {
           <ul className="dropdown menu" data-dropdown-menu>
             <li className="menu-text">Housing Tool</li>
             <li>
-              <a href="#">Local News</a>
+              <a href="#">About</a>
               <ul className="menu vertical">
-                <li><a href="#">News 1</a></li>
-                <li><a href="#">News 2</a></li>
+                <li><a href="#">Item 1</a></li>
+                <li><a href="#">Item 2</a></li>
               </ul>
             </li>
             <li><a href="#">Rent Calculator</a></li>

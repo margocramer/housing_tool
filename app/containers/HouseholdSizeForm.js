@@ -9,8 +9,6 @@ class HouseholdSizeForm extends Component {
   }
 
   render(){
-    if (this.props.size){
-    }
     return(
       <div className="household-size-form">
         <HouseholdSizeField
