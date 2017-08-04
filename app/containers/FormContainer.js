@@ -7,19 +7,20 @@ class FormContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      hasSelectedHouseholdSize: null,
-      hasSelectedIncome: null,
+      income: null,
+      size: null
     };
-    this.updateIncomeStatus = this.updateIncomeStatus.bind(this);
-    this.updateHouseholdStatus = this.updateHouseholdStatus.bind(this)
+    this.updateIncome = this.updateIncome.bind(this);
+    this.updateSize = this.updateSize.bind(this)
   }
 
-  updateHouseholdStatus(status){
-    this.setState({hasSelectedHouseholdSize: true})
+
+  updateIncome(event){
+    this.setState({income: event.target.value})
   }
 
-  updateIncomeStatus(status){
-    this.setState({hasSelectedIncome: true})
+  updateSize(event){
+    this.setState({size: event.target.value})
   }
 
   render(){
@@ -27,26 +28,30 @@ class FormContainer extends Component {
     let form2 = null;
     let result = null;
 
-    if(this.state.hasSelectedHouseholdSize && this.state.hasSelectedIncome) {
+    if( this.state.size > 0 && this.state.income) {
       form1 = <HouseholdSizeForm
-        updateHouseholdStatus={this.updateHouseholdStatus}
-        updateIncomeStatus={this.updateIncomeStatus}
+        updateSize={this.updateSize}
+        size={this.state.size}
       />
       form2 = <IncomeForm
-        updateIncomeStatus={this.updateIncomeStatus}
+        updateIncome={this.updateIncome}
+        income={this.state.income}
       />
       result = <ResultTile
       />
-    } else if (!this.state.hasSelectedHouseholdSize){
+    } else if (!this.state.size){
       form1 = <HouseholdSizeForm
-        updateHouseholdStatus={this.updateHouseholdStatus}
+        updateSize={this.updateSize}
+        size={this.state.size}
       />
     } else {
       form1 = <HouseholdSizeForm
-        updateHouseholdStatus={this.updateHouseholdStatus}
+        updateSize={this.updateSize}
+        size={this.state.size}
       />
       form2 = <IncomeForm
-        updateIncomeStatus={this.updateIncomeStatus}
+        updateIncome={this.updateIncome}
+        income={this.state.income}
       />
     }
 
