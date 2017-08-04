@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 gem 'sinatra'
 gem 'sinatra-activerecord'
+ruby "2.3.4"
 
 group :development, :test do
   gem 'pry'
@@ -15,6 +16,3 @@ end
 group :production do
   gem 'pg'
 end
-
-
-ruby "2.3.4"
