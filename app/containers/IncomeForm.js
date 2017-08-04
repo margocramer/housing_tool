@@ -9,8 +9,6 @@ class IncomeForm extends Component {
   }
 
   render() {
-    if (this.props.income){
-    }
     return(
       <div className="household-size-form">
         <IncomeField
