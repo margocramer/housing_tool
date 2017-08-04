@@ -28,7 +28,7 @@ class FormContainer extends Component {
     let form2 = null;
     let result = null;
 
-    if( this.state.size > 0 && this.state.income) {
+    if( this.state.size > 0 && this.state.income ) {
       form1 = <HouseholdSizeForm
         updateSize={this.updateSize}
         size={this.state.size}
@@ -39,7 +39,7 @@ class FormContainer extends Component {
       />
       result = <ResultTile
       />
-    } else if (!this.state.size){
+    } else if ( this.state.size === "Household Size" || !this.state.size ){
       form1 = <HouseholdSizeForm
         updateSize={this.updateSize}
         size={this.state.size}
