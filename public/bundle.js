@@ -19905,7 +19905,7 @@
 	          income: this.state.income
 	        });
 	        result = _react2.default.createElement(_ResultTile2.default, null);
-	      } else if (!this.state.size) {
+	      } else if (this.state.size === "Household Size" || !this.state.size) {
 	        form1 = _react2.default.createElement(_HouseholdSizeForm2.default, {
 	          updateSize: this.updateSize,
 	          size: this.state.size
