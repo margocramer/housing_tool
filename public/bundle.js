@@ -19811,7 +19811,11 @@
 	        'div',
 	        null,
 	        _react2.default.createElement(_NavBarContainer2.default, null),
-	        _react2.default.createElement(_FormContainer2.default, null)
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'grid-x grid-padding-x' },
+	          _react2.default.createElement(_FormContainer2.default, null)
+	        )
 	      );
 	    }
 	  }]);
@@ -19916,11 +19920,6 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'Conditionally render below'
-	        ),
 	        form1,
 	        form2,
 	        result
@@ -20292,9 +20291,70 @@
 	    "div",
 	    { className: "nav-bar" },
 	    _react2.default.createElement(
-	      "h1",
-	      null,
-	      "NavBar"
+	      "div",
+	      { className: "top-bar" },
+	      _react2.default.createElement(
+	        "div",
+	        { className: "top-bar-left" },
+	        _react2.default.createElement(
+	          "ul",
+	          { className: "dropdown menu", "data-dropdown-menu": true },
+	          _react2.default.createElement(
+	            "li",
+	            { className: "menu-text" },
+	            "Housing Tool"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            _react2.default.createElement(
+	              "a",
+	              { href: "#" },
+	              "Local News"
+	            ),
+	            _react2.default.createElement(
+	              "ul",
+	              { className: "menu vertical" },
+	              _react2.default.createElement(
+	                "li",
+	                null,
+	                _react2.default.createElement(
+	                  "a",
+	                  { href: "#" },
+	                  "News 1"
+	                )
+	              ),
+	              _react2.default.createElement(
+	                "li",
+	                null,
+	                _react2.default.createElement(
+	                  "a",
+	                  { href: "#" },
+	                  "News 2"
+	                )
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            _react2.default.createElement(
+	              "a",
+	              { href: "#" },
+	              "Rent Calculator"
+	            )
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            _react2.default.createElement(
+	              "a",
+	              { href: "#" },
+	              "Listings"
+	            )
+	          )
+	        )
+	      )
 	    )
 	  );
 	};

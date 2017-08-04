@@ -4,7 +4,22 @@ const NavBar = (props) => {
 
   return(
     <div className="nav-bar">
-      <h1>NavBar</h1>
+      <div className="top-bar">
+        <div className="top-bar-left">
+          <ul className="dropdown menu" data-dropdown-menu>
+            <li className="menu-text">Housing Tool</li>
+            <li>
+              <a href="#">Local News</a>
+              <ul className="menu vertical">
+                <li><a href="#">News 1</a></li>
+                <li><a href="#">News 2</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Rent Calculator</a></li>
+            <li><a href="#">Listings</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
   )
 }
