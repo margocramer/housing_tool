@@ -19870,23 +19870,23 @@
 	    var _this = _possibleConstructorReturn(this, (FormContainer.__proto__ || Object.getPrototypeOf(FormContainer)).call(this, props));
 
 	    _this.state = {
-	      hasSelectedHouseholdSize: null,
-	      hasSelectedIncome: null
+	      income: null,
+	      size: null
 	    };
-	    _this.updateIncomeStatus = _this.updateIncomeStatus.bind(_this);
-	    _this.updateHouseholdStatus = _this.updateHouseholdStatus.bind(_this);
+	    _this.updateIncome = _this.updateIncome.bind(_this);
+	    _this.updateSize = _this.updateSize.bind(_this);
 	    return _this;
 	  }
 
 	  _createClass(FormContainer, [{
-	    key: 'updateHouseholdStatus',
-	    value: function updateHouseholdStatus(status) {
-	      this.setState({ hasSelectedHouseholdSize: true });
+	    key: 'updateIncome',
+	    value: function updateIncome(event) {
+	      this.setState({ income: event.target.value });
 	    }
 	  }, {
-	    key: 'updateIncomeStatus',
-	    value: function updateIncomeStatus(status) {
-	      this.setState({ hasSelectedIncome: true });
+	    key: 'updateSize',
+	    value: function updateSize(event) {
+	      this.setState({ size: event.target.value });
 	    }
 	  }, {
 	    key: 'render',
@@ -19895,25 +19895,29 @@
 	      var form2 = null;
 	      var result = null;
 
-	      if (this.state.hasSelectedHouseholdSize && this.state.hasSelectedIncome) {
+	      if (this.state.size > 0 && this.state.income) {
 	        form1 = _react2.default.createElement(_HouseholdSizeForm2.default, {
-	          updateHouseholdStatus: this.updateHouseholdStatus,
-	          updateIncomeStatus: this.updateIncomeStatus
+	          updateSize: this.updateSize,
+	          size: this.state.size
 	        });
 	        form2 = _react2.default.createElement(_IncomeForm2.default, {
-	          updateIncomeStatus: this.updateIncomeStatus
+	          updateIncome: this.updateIncome,
+	          income: this.state.income
 	        });
 	        result = _react2.default.createElement(_ResultTile2.default, null);
-	      } else if (!this.state.hasSelectedHouseholdSize) {
+	      } else if (!this.state.size) {
 	        form1 = _react2.default.createElement(_HouseholdSizeForm2.default, {
-	          updateHouseholdStatus: this.updateHouseholdStatus
+	          updateSize: this.updateSize,
+	          size: this.state.size
 	        });
 	      } else {
 	        form1 = _react2.default.createElement(_HouseholdSizeForm2.default, {
-	          updateHouseholdStatus: this.updateHouseholdStatus
+	          updateSize: this.updateSize,
+	          size: this.state.size
 	        });
 	        form2 = _react2.default.createElement(_IncomeForm2.default, {
-	          updateIncomeStatus: this.updateIncomeStatus
+	          updateIncome: this.updateIncome,
+	          income: this.state.income
 	        });
 	      }
 
@@ -19968,33 +19972,20 @@
 
 	    var _this = _possibleConstructorReturn(this, (HouseholdSizeForm.__proto__ || Object.getPrototypeOf(HouseholdSizeForm)).call(this, props));
 
-	    _this.state = {
-	      size: null
-	    };
-	    _this.updateSize = _this.updateSize.bind(_this);
+	    _this.state = {};
 	    return _this;
 	  }
 
 	  _createClass(HouseholdSizeForm, [{
-	    key: 'updateSize',
-	    value: function updateSize(event) {
-	      this.setState({ size: event.target.value });
-	      this.isSelected();
-	    }
-	  }, {
-	    key: 'isSelected',
-	    value: function isSelected() {
-	      this.props.updateHouseholdStatus(true);
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
+	      if (this.props.size) {}
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'household-size-form' },
 	        _react2.default.createElement(_HouseholdSizeField2.default, {
-	          handleChange: this.updateSize,
-	          size: this.state.size,
+	          handleChange: this.props.updateSize,
+	          size: this.props.size,
 	          label: 'Household Size',
 	          name: 'household-size'
 	        })
@@ -20017,61 +20008,87 @@
 	  value: true
 	});
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var HouseholdSizeField = function HouseholdSizeField(props) {
-	  return _react2.default.createElement(
-	    "div",
-	    { className: "household-size-field" },
-	    _react2.default.createElement(
-	      "label",
-	      null,
-	      props.label,
-	      _react2.default.createElement(
-	        "select",
-	        {
-	          value: props.size,
-	          onChange: props.handleChange,
-	          name: props.name
-	        },
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var HouseholdSizeField = function (_Component) {
+	  _inherits(HouseholdSizeField, _Component);
+
+	  function HouseholdSizeField(props) {
+	    _classCallCheck(this, HouseholdSizeField);
+
+	    var _this = _possibleConstructorReturn(this, (HouseholdSizeField.__proto__ || Object.getPrototypeOf(HouseholdSizeField)).call(this, props));
+
+	    _this.state = {};
+	    return _this;
+	  }
+
+	  _createClass(HouseholdSizeField, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2.default.createElement(
+	        "div",
+	        { className: "household-size-field" },
 	        _react2.default.createElement(
-	          "option",
-	          { value: "Household Size" },
-	          "Select"
-	        ),
-	        _react2.default.createElement(
-	          "option",
-	          { value: "1" },
-	          "1"
-	        ),
-	        _react2.default.createElement(
-	          "option",
-	          { value: "2" },
-	          "2"
-	        ),
-	        _react2.default.createElement(
-	          "option",
-	          { value: "3" },
-	          "3"
-	        ),
-	        _react2.default.createElement(
-	          "option",
-	          { value: "4" },
-	          "4"
-	        ),
-	        _react2.default.createElement(
-	          "option",
-	          { value: "5" },
-	          "5"
+	          "label",
+	          null,
+	          this.props.label,
+	          _react2.default.createElement(
+	            "select",
+	            {
+	              value: this.props.size,
+	              onChange: this.props.handleChange,
+	              name: this.props.name
+	            },
+	            _react2.default.createElement(
+	              "option",
+	              { value: "Household Size" },
+	              "Select"
+	            ),
+	            _react2.default.createElement(
+	              "option",
+	              { value: "1" },
+	              "1"
+	            ),
+	            _react2.default.createElement(
+	              "option",
+	              { value: "2" },
+	              "2"
+	            ),
+	            _react2.default.createElement(
+	              "option",
+	              { value: "3" },
+	              "3"
+	            ),
+	            _react2.default.createElement(
+	              "option",
+	              { value: "4" },
+	              "4"
+	            ),
+	            _react2.default.createElement(
+	              "option",
+	              { value: "5" },
+	              "5"
+	            )
+	          )
 	        )
-	      )
-	    )
-	  );
-	};
+	      );
+	    }
+	  }]);
+
+	  return HouseholdSizeField;
+	}(_react.Component);
 
 	exports.default = HouseholdSizeField;
 
@@ -20111,33 +20128,20 @@
 
 	    var _this = _possibleConstructorReturn(this, (IncomeForm.__proto__ || Object.getPrototypeOf(IncomeForm)).call(this, props));
 
-	    _this.state = {
-	      income: null
-	    };
-	    _this.updateIncome = _this.updateIncome.bind(_this);
+	    _this.state = {};
 	    return _this;
 	  }
 
 	  _createClass(IncomeForm, [{
-	    key: 'updateIncome',
-	    value: function updateIncome(event) {
-	      this.setState({ income: event.target.value });
-	      this.isSelected();
-	    }
-	  }, {
-	    key: 'isSelected',
-	    value: function isSelected() {
-	      this.props.updateIncomeStatus(true);
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
+	      if (this.props.income) {}
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'household-size-form' },
 	        _react2.default.createElement(_IncomeField2.default, {
-	          handleChange: this.updateIncome,
-	          income: this.state.income,
+	          handleChange: this.props.updateIncome,
+	          income: this.props.income,
 	          label: 'Income',
 	          name: 'income'
 	        })
