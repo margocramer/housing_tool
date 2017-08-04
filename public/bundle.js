@@ -20075,13 +20075,6 @@
 
 	exports.default = HouseholdSizeField;
 
-
-	_react2.default.createElement(
-	  "div",
-	  { "class": "dropdown-pane", id: "example-dropdown-1", "data-dropdown": true, "data-hover": "true", "data-hover-pane": "true" },
-	  "Just some junk that needs to be said. Or not. Your choice."
-	);
-
 /***/ }),
 /* 163 */
 /***/ (function(module, exports, __webpack_require__) {
