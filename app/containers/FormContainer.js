@@ -52,7 +52,6 @@ class FormContainer extends Component {
 
     return(
       <div>
-        <h1>Conditionally render below</h1>
           {form1}
           {form2}
           {result}

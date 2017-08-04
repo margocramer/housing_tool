@@ -22,3 +22,9 @@ const HouseholdSizeField = (props) => {
 }
 
 export default HouseholdSizeField;
+
+
+
+<div class="dropdown-pane" id="example-dropdown-1" data-dropdown data-hover="true" data-hover-pane="true">
+  Just some junk that needs to be said. Or not. Your choice.
+</div>
